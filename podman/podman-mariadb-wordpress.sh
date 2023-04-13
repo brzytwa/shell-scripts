@@ -27,17 +27,13 @@ DIR_B="$DIR_PARENT/html"
 
 if [ -d "$DIR_PARENT" ]; then
   echo "I'm deleting the directory: $DIR_PARENT"
-  #sudo rm -rf "$DIR_PARENT"
+  sudo rm -rf "$DIR_PARENT"
   mkdir -p "$DIR_A"
-  sudo chown -R 100998:100998 "$DIR_A"
   mkdir -p "$DIR_B"
-  sudo chown -R 100032:100032 "$DIR_B"
   else
   echo "I create the necessary directories"
   mkdir -p "$DIR_A"
-  sudo chown -R 100998:100998 "$DIR_A"
   mkdir -p "$DIR_B"
-  sudo chown -R 100032:100032 "$DIR_B"
   fi
 
 podman pod create --name "$POD_NAME" -p "$WP_PORT":80 -p $DB_PORT:3306 
@@ -66,6 +62,6 @@ docker.io/library/wordpress:latest
 
 podman pod list
 podman ps -a
-echo "Wait 4s..."
-sleep 4
+echo "Wait 10s..."
+sleep 10
 mysql -u"$DB_USER" -p"$DB_PASS" -h 127.0.0.1 -P $DB_PORT -e "SELECT @@version;"
