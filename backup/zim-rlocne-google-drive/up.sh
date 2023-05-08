@@ -29,7 +29,7 @@ fi
 
 echo -e $yellowf'Szyfruję dane...'$reset
 dane=($archiwum'.gpg')
-gpg2 --output ~/BACKUP/ZIM/$dane -r marcin.piotrowski --encrypt ~/BACKUP/ZIM/$archiwum 2>/dev/null
+gpg2 --always-trust --output ~/BACKUP/ZIM/$dane -r marcin.piotrowski --encrypt ~/BACKUP/ZIM/$archiwum 2>/dev/null
 flaga02=$?
 
 if [ $flaga02 -eq 0 ]
