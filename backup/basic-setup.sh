@@ -3,7 +3,7 @@
 # basic configuration of a clean system installation
 
 echo "Installation of necessary packages"
-sudo dnf -y install vim mc tmux htop bash-completion fish util-linux-user fzf fontconfig git NetworkManager-tui 
+sudo dnf -y install vim mc tmux htop bash-completion fish util-linux-user fzf fontconfig git gh NetworkManager-tui 
 
 echo "Configuration of tmux software"
 mkdir -pv ~/.config/tmux && echo "setw -g mouse on" >> ~/.config/tmux/tmux.conf 
